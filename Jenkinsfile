@@ -70,11 +70,14 @@ pipeline {
                               "exclusions": [ "*.sha1", "*.md5"]
                             }
                          ]
-                     }"""
+                    }"""
                     def buildInfo = server.upload(uploadSpec)
                     buildInfo.env.collect()
                     server.publishBuildInfo(buildInfo)
-        }            echo '<--------------- Jar Publish Ended --------------->'
+                    echo '<--------------- Jar Publish Ended --------------->'
+                }
+            }
+        }
     }
     post {
         success {
@@ -82,14 +85,14 @@ pipeline {
             emailext (
                 subject: "Build success: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: "build completed successfully!\nCheck details : ${env.BUILD_URL}",
-                to: "kanhaiyagupta991018@gmail.com"
+                to: "kanhaiya.gupta991018@gmail.com"
             )
         }
         failure {
             emailext (
                 subject: "code failed : ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                 body: "code failed!\nCheck logs: ${env.BUILD_URL}",
-                to: "kanhaiyagupta991018@gmail.com"
+                to: "kanhaiya.gupta991018@gmail.com"
             )
         }
         //always {
