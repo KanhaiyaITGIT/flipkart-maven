@@ -1,3 +1,4 @@
+Jenkins-pipeline
 pipeline {
     agent any
     environment {
@@ -54,6 +55,27 @@ pipeline {
                 }
             }
         }
+        stage("Jar Publish") {
+            steps {
+                script {
+                    echo '<--------------- Jar Publish Started --------------->'
+                    def server = Artifactory.server('jfrog-server')
+                    def properties = "buildid=${env.BUILD_ID},commitid=${GIT_COMMIT}"
+                    def uploadSpec = """{
+                          "files": [
+                            {
+                              "pattern": "target/*.war",
+                              "target": "kanha-libs-release-local/",
+                              "flat": "false",
+                              "props": "${properties}",
+                              "exclusions": [ "*.sha1", "*.md5"]
+                            }
+                         ]
+                     }"""
+                    def buildInfo = server.upload(uploadSpec)
+                    buildInfo.env.collect()
+                    server.publishBuildInfo(buildInfo)
+                    echo '<--------------- Jar Publish Ended --------------->'
     }
     post {
         success {
@@ -71,9 +93,9 @@ pipeline {
                 to: "kanhaiya.gupta991018@gmail.com"
             )
         }
-        always {
-            echo "cleaning workspace"
-            cleanWs()
-        }
+        //always {
+            //echo "cleaning workspace"
+            //cleanWs()
+        //}
     }
 }
