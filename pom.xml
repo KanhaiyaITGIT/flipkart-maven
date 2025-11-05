@@ -6,7 +6,7 @@
 
   <groupId>com.flipkart.www</groupId>
   <artifactId>flipkart</artifactId>
-  <version>2.9</version>
+  <version>4.15.1</version>
   <packaging>war</packaging>
 
   <name>flipkart Maven Webapp</name>
