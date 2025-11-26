@@ -61,9 +61,13 @@
   <div class="search" role="search" aria-label="Search products">
     <input id="searchInput" type="search" placeholder="Search for products, brands and more..." />
     <button id="searchBtn">Search</button>
+    <input id="Nisha_Gupta" type="search" placeholder="Search for products, brands and more..." />
+    <input id="shraddha_gupta" type="search" placeholder="Search for products, brands and more..." />
+    <input id="kanhaiya_gupta" type="search" placeholder="Search for products, brands and more..." />
   </div>
   <nav>
-    <div class="topbar">
+
+	 <div class="topbar">
       <div class="badge">Free Delivery</div>
     </div>
     <div class="cart-btn" id="openCart">Cart (<span id="cartCount">0</span>)</div>
