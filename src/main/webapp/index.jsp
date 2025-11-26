@@ -64,7 +64,7 @@
     <input id="Nisha_Gupta" type="search" placeholder="Search for products, brands and more..." />
     <input id="shraddha_gupta" type="search" placeholder="Search for products, brands and more..." />
     <input id="kanhaiya_gupta" type="search" placeholder="Search for products, brands and more..." />
-    <input id="shraddha_gupta" type="search" placeholder="Search for products and get big discount, brands and more..." />
+    <input id="shraddha_gupta" type="search" placeholder="Search for products and get big discount and kanhaiya bhaiya bhai aya kanhaiya radha rani, brands and more..." />
 
   </div>
   <nav>
